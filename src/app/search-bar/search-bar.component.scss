@@ -1,0 +1,15 @@
+#navbar {
+    background: #ddd;
+    clear: both;
+    width: 100%;
+    padding: 0.5em;
+    input {
+        padding: 0.5em;
+        font-size: 1em;
+    }
+    input[type=submit] {
+        background: #7F003C;
+        color: #fff;
+        border: none;
+    }
+}
