@@ -7,9 +7,16 @@
         padding: 0.5em;
         font-size: 1em;
     }
-    input[type=submit] {
+    button {
         background: #7F003C;
+        padding: 0.5em;
+        font-size: 1em;
         color: #fff;
         border: none;
     }
+}
+
+#search-result {
+    display: none;
+    padding: 0.5em;
 }

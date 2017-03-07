@@ -1,6 +1,12 @@
 <div id="navbar">
- <form #form="ngForm" (ngSubmit)="searchMovie(form.value)">
-    <input type="text" placeholder="Search movies" ngModel>
-    <input type="submit" value="Search" ngModel>
+
+  <form #form="ngForm" (ngSubmit)="searchMovie(form.value)">
+    <input type="text" placeholder="Search movies" name="title" ngModel>
+    <button type="submit">Search</button>
   </form>
+
+  <div id="search-result">
+    {{result.Title}} ({{result.Year}}), Genre: {{result.Genre}}, ID: {{result.imdbID}}
+  </div>
+
 </div> 
