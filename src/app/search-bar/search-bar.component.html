@@ -6,7 +6,9 @@
   </form>
 
   <div id="search-result">
-    {{result.Title}} ({{result.Year}}), Genre: {{result.Genre}}, ID: {{result.imdbID}}
+    {{result.Title}} ({{result.Year}}), Genre: {{result.Genre}} <br>
+    <button (click)="addToListRM()">Add to recent movies</button>
+    <button (click)="addToListWL()">Add to watchlist</button>
   </div>
 
 </div> 
