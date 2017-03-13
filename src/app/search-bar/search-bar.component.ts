@@ -16,6 +16,7 @@ export class SearchBarComponent implements OnInit {
 
   private recentMovies: Array<string> = [];
   private watchList: Array<string> = [];
+  private noMovies: Array<string> = [];
 
   constructor(private http: Http) { }
 
@@ -38,32 +39,40 @@ export class SearchBarComponent implements OnInit {
       return this.movieID;
    }
 
-   addToListRM() {
-     console.log('nappia painettu ja ID on ' + this.movieID);
-      if (localStorage.getItem('recentMovies') === null) {
+   addToListWM() {
+      if (localStorage.getItem('watchedMovies') === null) {
         this.recentMovies.push(this.movieID);
-        localStorage.setItem('recentMovies', JSON.stringify(this.recentMovies));
-        console.log(localStorage.getItem('recentMovies'));
       } else {
-        this.recentMovies = JSON.parse(localStorage.getItem('recentMovies'));
+        this.recentMovies = JSON.parse(localStorage.getItem('watchedMovies'));
         this.recentMovies.push(this.movieID);
-        localStorage.setItem('recentMovies', JSON.stringify(this.recentMovies));
-        console.log(localStorage.getItem('recentMovies'));
       }
+      localStorage.setItem('watchedMovies', JSON.stringify(this.recentMovies));
+      console.log(localStorage.getItem('watchedMovies'));
+      location.reload();
    }
 
    addToListWL() {
-     console.log('nappia painettu ja ID on ' + this.movieID);
       if (localStorage.getItem('watchList') === null) {
         this.watchList.push(this.movieID);
-        localStorage.setItem('watchList', JSON.stringify(this.watchList));
-        console.log(localStorage.getItem('watchList'));
       } else {
         this.watchList = JSON.parse(localStorage.getItem('watchList'));
         this.watchList.push(this.movieID);
-        localStorage.setItem('watchList', JSON.stringify(this.watchList));
-        console.log(localStorage.getItem('watchList'));
       }
+      localStorage.setItem('watchList', JSON.stringify(this.watchList));
+      console.log(localStorage.getItem('watchList'));
+      location.reload();
+   }
+
+   addToListNM() {
+      if (localStorage.getItem('noMovies') === null) {
+        this.noMovies.push(this.movieID);
+      } else {
+        this.noMovies = JSON.parse(localStorage.getItem('noMovies'));
+        this.noMovies.push(this.movieID);
+      }
+      localStorage.setItem('noMovies', JSON.stringify(this.noMovies));
+      console.log(localStorage.getItem('noMovies'));
+      location.reload();
    }
 
   ngOnInit() {
